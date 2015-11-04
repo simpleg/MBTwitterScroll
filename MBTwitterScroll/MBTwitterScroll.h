@@ -25,7 +25,7 @@ typedef enum : NSUInteger {
 @interface MBTwitterScroll : UIView <UIScrollViewDelegate, MBTwitterScrollDelegate >
 
 
-- (MBTwitterScroll *)initTableViewWithBackgound:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle;
+- (MBTwitterScroll *)initTableViewWithBackgound:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle tableViewStyle:(UITableViewStyle) tableViewStyle;
 - (MBTwitterScroll *)initScrollViewWithBackgound:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle contentHeight:(CGFloat)height;
 -(void)updateHeaderImage:(UIImage*)newImage;
 

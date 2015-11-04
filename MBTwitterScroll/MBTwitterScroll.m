@@ -21,18 +21,18 @@ CGFloat const distance_W_LabelHeader = 35.0;
     
     CGRect bounds = [[UIScreen mainScreen] bounds];
     self = [[MBTwitterScroll alloc] initWithFrame:bounds];
-    [self setupView:backgroundImage avatarImage:avatarImage titleString:titleString subtitleString:subtitleString buttonTitle:buttonTitle scrollHeight:height type:MBScroll];
+    [self setupView:backgroundImage avatarImage:avatarImage titleString:titleString subtitleString:subtitleString buttonTitle:buttonTitle scrollHeight:height type:MBScroll tableViewStyle:UITableViewStylePlain];
     
     return self;
 }
 
 
-- (MBTwitterScroll *)initTableViewWithBackgound:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle {
+- (MBTwitterScroll *)initTableViewWithBackgound:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle tableViewStyle:(UITableViewStyle) tableViewStyle{
     
     CGRect bounds = [[UIScreen mainScreen] bounds];
     self = [[MBTwitterScroll alloc] initWithFrame:bounds];
     
-    [self setupView:backgroundImage avatarImage:avatarImage titleString:titleString subtitleString:subtitleString buttonTitle:buttonTitle scrollHeight:0 type:MBTable];
+    [self setupView:backgroundImage avatarImage:avatarImage titleString:titleString subtitleString:subtitleString buttonTitle:buttonTitle scrollHeight:0 type:MBTable tableViewStyle:tableViewStyle];
     [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     
     return self;
@@ -41,7 +41,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
 
 
 
-- (void) setupView:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle scrollHeight:(CGFloat)height type:(MBType)type {
+- (void) setupView:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle scrollHeight:(CGFloat)height type:(MBType)type tableViewStyle:(UITableViewStyle) tableViewStyle {
     
     
     // Header
@@ -56,7 +56,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
     
     if (type == MBTable) {
         // TableView
-        self.tableView = [[UITableView alloc] initWithFrame:self.frame];
+        self.tableView = [[UITableView alloc] initWithFrame:self.frame style:tableViewStyle];
         self.tableView.backgroundColor = [UIColor clearColor];
         self.tableView.showsVerticalScrollIndicator = NO;
         
